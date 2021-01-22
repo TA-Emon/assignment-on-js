@@ -1,7 +1,8 @@
+// https://github.com/TA-Emon/assignment-on-js
 
 
-
-//(1) the following function will convert kilometer to meter
+//(1) kilometerToMeter
+//=====================
 function kilometerToMeter(km){
     if(km < 0){
         var km = "the value of distance can not be negative";
@@ -12,14 +13,15 @@ function kilometerToMeter(km){
         var result = kmRound*1000;
         return result;
     }
-
+    
 }
 
 var kilometer = 12;
 console.log(kilometerToMeter(kilometer),"Meter");
 
 
-//(2) by using following function a budget calculator has been made
+//(2) budgetCalculator
+//=====================
 function budgetCalculator(clock,phone,laptop){
     var clockResult = clock*50;
     var phoneResult = phone*100;
@@ -32,49 +34,60 @@ console.log(budgetCalculator(5,7,3));
 
 
 
-//(3) the following function will find out the cost of hotel on different conditions
+//(3) hotelCost
+//===============
 function hotelCost(days){
-    var totalCost = 0;
-    if(days <= 10){
-        var totalCost = days*100;
-    }
-    else if(days <= 20){
-        var firstCost = 10*100;
-        var remainingDays = days - 10;
-        var secondCost = remainingDays*80;
-        var totalCost = firstCost+secondCost;
+    if(days<0){
+        var result = "days cannot be negative";
+        return result;
     }
     else{
-        var firstCost = 10*100;
-        var secondCost = 10*80;
-        var remainingDays = days - 20;
-        var thirdCost = remainingDays*50;
-        totalCost = firstCost+secondCost+thirdCost;
+        var totalCost = 0;
+        if(days <= 10){
+            var totalCost = days*100;
+        }
+        else if(days <= 20){
+            var firstCost = 10*100;
+            var remainingDays = days - 10;
+            var secondCost = remainingDays*80;
+            var totalCost = firstCost+secondCost;
+        }
+        else{
+            var firstCost = 10*100;
+            var secondCost = 10*80;
+            var remainingDays = days - 20;
+            var thirdCost = remainingDays*50;
+            totalCost = firstCost+secondCost+thirdCost;
+        }
+        return totalCost;
     }
-    return totalCost;
+
 }
+
 console.log(hotelCost(30));
 
 
 
-//(4) the following function will find the biggest name of the array
-function megaFriend(num){
-    var bigName= "";
-    for(var i =0; i<num.length; i++){
-        var element = num[i];
-        if(element.length>bigName.length){
-            bigName = element;
-        }
+//(4) megaFriend
+//===============
+function megaFriend(names){
+    if(names>=0 || names<=0){
+        var namesNumber = "name cannot be number";
+        return namesNumber;
     }
-    return bigName;
+    else{
+        var bigName= "";
+        for(var i =0; i<names.length; i++){
+            var element = names[i];
+            if(element.length>bigName.length){
+                bigName = element;
+            }
+        }
+        return bigName;
+    }
+
 }
 
-var names = ["emon", "sarjahan", "santo", "raju", "tamjid"];
-console.log(megaFriend(names));
-
-
-
-
-
-
-
+var firendNames = ["emon", "sarjahan", "santo", "raju", "tamjid"];
+console.log(megaFriend(firendNames));
+console.log(megaFriend(-10));
